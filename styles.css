@@ -1,0 +1,50 @@
+#calculator {
+    position: relative;
+    left: 375px;
+    top: 50px;
+    background-color: black;
+    width: 400px;
+    height: 600px;
+}
+
+#resultarea {
+    position: relative;
+    top: 15px;
+    background-color: grey;
+    width: 400px;
+    height: 100px;
+}
+
+
+[id$="row"] {
+    display: flex;
+    flex-direction: row;
+}
+
+#firstrow {
+    margin-top: 20px;
+}
+
+.bluebutton {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+}
+
+.orangebutton {
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+}
+
+.greenbutton:not(#zero) {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+}
+
+#zero {
+    width: 200px;
+    height: 100px;
+    background-color: green;
+}
