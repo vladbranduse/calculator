@@ -7,14 +7,18 @@
     height: 600px;
 }
 
-#resultarea {
+#displayarea {
     position: relative;
     top: 15px;
     background-color: grey;
     width: 400px;
     height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
-
 
 [id$="row"] {
     display: flex;
@@ -37,13 +41,13 @@
     background-color: orange;
 }
 
-.greenbutton:not(#zero) {
+.greenbutton:not(.zero) {
     width: 100px;
     height: 100px;
     background-color: green;
 }
 
-#zero {
+.zero {
     width: 200px;
     height: 100px;
     background-color: green;
