@@ -132,4 +132,30 @@ for (let i = 0; i < button.length; i++) {
     });    
 }
 
+document.addEventListener("keydown", (event) => {
+    const key = event.key;
+    if (!isNaN(key)) {
+        handleNumber(key);
+    } else if (key === "+" || key === "-" || key === "*" || key === "/") {
+        handleOperator(key);
+    } else if (key === "Enter" || key === "=") {
+        handleEqual();
+    } else if (key === ".") {
+        handleDecimal();
+    } else if (key === "Escape") {
+        clearData();
+    } else if (key === "%") {
+        handlePercentage();
+    } else if (key === "Backspace") {
+        if (!operator) {
+            firstOperand = firstOperand.slice(0, -1) || "0";
+            displayValue = firstOperand;
+        } else {
+            secondOperand = secondOperand.slice(0, -1) || "0";
+            displayValue = secondOperand;
+        }
+        updateDisplay();
+    }
+});
+
 updateDisplay();
