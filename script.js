@@ -97,6 +97,17 @@ function toggleSign() {
     updateDisplay();
 }
 
+function handleBackSpace() {
+    if (!operator) {
+        firstOperand = firstOperand.slice(0, -1) || "0";
+        displayValue = firstOperand;
+    } else {
+        secondOperand = secondOperand.slice(0, -1) || "0";
+        displayValue = secondOperand;
+    }
+    updateDisplay();
+}
+
 function handlePercentage() {
     if (awaitingNextOperand) {
         return;
@@ -126,6 +137,8 @@ for (let i = 0; i < button.length; i++) {
             clearData();
         } else if (button[i].className.includes("sign")) {
             toggleSign();
+        } else if (button[i].className.includes("material-icons")) {
+            handleBackSpace();
         } else if (button[i].className.includes("percentage")) {
             handlePercentage();
         }
@@ -147,14 +160,7 @@ document.addEventListener("keydown", (event) => {
     } else if (key === "%") {
         handlePercentage();
     } else if (key === "Backspace") {
-        if (!operator) {
-            firstOperand = firstOperand.slice(0, -1) || "0";
-            displayValue = firstOperand;
-        } else {
-            secondOperand = secondOperand.slice(0, -1) || "0";
-            displayValue = secondOperand;
-        }
-        updateDisplay();
+        handleBackSpace();
     }
 });
 
